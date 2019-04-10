@@ -3,16 +3,16 @@ package com.narara.android_movie_test;
 import android.widget.ImageView;
 
 public class MovieInfo {
-    static ImageView[] posters = {};
+    public MovieInfo() {
+    }
 
-
-    public String title = "꾼";
     public String[] titles = {
-          "꾼", "파이널 스코어", "퍼스트맨", " 인터스텔라", "인셉션"
+            "꾼",
+            "파이널 스코어",
+            "퍼스트맨",
+            "인터스텔라",
+            "인셉션"
     };
-
-
-    public String content ="‘희대의 사기꾼’을 잡기 위해 사기‘꾼’들이 뭉쳤다!";
 
     public String[] contents = {
             "‘희대의 사기꾼’을 잡기 위해 사기‘꾼’들이 뭉쳤다!",
@@ -22,4 +22,19 @@ public class MovieInfo {
             "다크 나이트의 스케일과 매트릭스의 미래가 만났다 | 생각을 훔치는 거대한 전쟁"
     };
 
+    public String[] getTitles() {
+        return titles;
+    }
+
+    public void setTitles(String[] titles) {
+        this.titles = titles;
+    }
+
+    public String[] getContents() {
+        return contents;
+    }
+
+    public void setContents(String[] contents) {
+        this.contents = contents;
+    }
 }

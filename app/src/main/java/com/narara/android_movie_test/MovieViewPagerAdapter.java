@@ -13,11 +13,11 @@ public class MovieViewPagerAdapter extends FragmentPagerAdapter {
     public MovieViewPagerAdapter(FragmentManager fm) {
         super(fm);
         mData = new ArrayList<>();
-        mData.add(MovieFragment.newInstance(R.drawable.movie_image_ggun, "꾼"));
-        mData.add(MovieFragment.newInstance(R.drawable.movie_image_final_score, "파이널 스코어"));
-        mData.add(MovieFragment.newInstance(R.drawable.movie_image_first_man, "퍼스트 맨"));
-        mData.add(MovieFragment.newInstance(R.drawable.movie_image_interstellar, "인터스텔라"));
-        mData.add(MovieFragment.newInstance(R.drawable.movie_image_inception, "인셉션"));
+        mData.add(MovieFragment.newInstance(R.drawable.movie_image_ggun, "꾼", 0));
+        mData.add(MovieFragment.newInstance(R.drawable.movie_image_final_score, "파이널 스코어", 1));
+        mData.add(MovieFragment.newInstance(R.drawable.movie_image_first_man, "퍼스트 맨", 2));
+        mData.add(MovieFragment.newInstance(R.drawable.movie_image_interstellar, "인터스텔라", 3));
+        mData.add(MovieFragment.newInstance(R.drawable.movie_image_inception, "인셉션", 4));
 
     }
 

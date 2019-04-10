@@ -13,36 +13,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link OnDetailsClickListener} interface
- * to handle interaction events.
- * Use the {@link MovieFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MovieFragment extends Fragment {
-    Button mDetailsbutton;
+
     private static final String ARG_RES = "resource";
     private static final String ARG_TITLE = "title";
+    private static final String ARG_POSITION = "pos";
 
-    private MovieInfo movieInfo;
-
-    // TODO: Rename and change types of parameters
     private int mRes;
+    private int mPos;
     private String mTitle;
 
+    Button mDetailsButton;
     private OnDetailsClickListener mListener;
+    private MovieInfo mMovieInfo = new MovieInfo();
 
     public MovieFragment() {
-        // Required empty public constructor
     }
 
-    public static MovieFragment newInstance(int res, String title) {
+    public static MovieFragment newInstance(int res, String title, int pos) {
         MovieFragment fragment = new MovieFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_RES, res);
         args.putString(ARG_TITLE, title);
+        args.putInt(ARG_POSITION, pos);
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,6 +46,7 @@ public class MovieFragment extends Fragment {
         if (getArguments() != null) {
             mRes = getArguments().getInt(ARG_RES);
             mTitle = getArguments().getString(ARG_TITLE);
+            mPos = getArguments().getInt(ARG_POSITION);
         }
     }
 
@@ -68,14 +62,14 @@ public class MovieFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mDetailsbutton = view.findViewById(R.id.button_details);
-        mDetailsbutton.setOnClickListener(new View.OnClickListener() {
+        mDetailsButton = view.findViewById(R.id.button_details);
+        mDetailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mListener != null) {
-                    mListener.onClick(movieInfo);
+                    mListener.onClick(mMovieInfo, view, mPos);
                 }
             }
         });
@@ -101,6 +95,6 @@ public class MovieFragment extends Fragment {
 
 
     public interface OnDetailsClickListener {
-        void onClick(MovieInfo movieInfo);
+        void onClick(MovieInfo movieInfo, View view, int position);
     }
 }
