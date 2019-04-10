@@ -34,6 +34,7 @@ public class MovieGridFragment extends Fragment {
         mList.add(new Movie(R.drawable.movie_image_first_man, "First Man"));
         mList.add(new Movie(R.drawable.movie_image_interstellar, "Interstellar"));
         mList.add(new Movie(R.drawable.movie_image_inception, "Inception"));
+        mList.add(new Movie(R.drawable.movie_image_bourne, "The Bourne Ultimatum"));
         return inflater.inflate(R.layout.fragment_movie_grid, container, false);
 
     }
